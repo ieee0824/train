@@ -11,17 +11,15 @@ import (
 	"path/filepath"
 )
 
-var docDir = "/Library/WebServer/Documents"
+var docDir = "/var/www/html"
 
 func upload(w http.ResponseWriter, r *http.Request) {
 	form := `
-  <html>
-    <title>Go upload</title>
-    <body>
-    <form action="http://`
-	form += getIP()
-
-	form += `:8080/deploy" method="post" enctype="multipart/form-data">
+ <html>
+<title>Go upload</title>
+<body>
+<form action="`
+	form += `/deploy" method="post" enctype="multipart/form-data">
 <label for="file">Filename:</label>
 <input type="file" name="file" id="file">
 <input type="submit" name="submit" value="Submit">
